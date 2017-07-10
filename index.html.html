@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  
+	  <style>
+p {
+    text-decoration: none; 
+    text-decoration-style: none; 
+}
+</style>
+</head>
+<body>
+<h1>List of food items:</h1>
+<ul>
+	<li> <a href="#" name="itemname" onclick="IsItemAvailable('Idli','17:00-21:00','07:00-10:00','09:45-12:00')">Idli</li>
+	<li> <a href="#" name="itemname" onclick="IsItemAvailable('Dosa','17:00-21:00','07:00-10:00','09:45-12:00')">Dosa</li>
+</ul>
+<p id="demo"></p>
+<script>
+function IsItemAvailable(name,time,time1,time2)
+{
+	var d= new Date();
+	var t=d.getHours() + ":" + d.getMinutes();
+	//alert(t);
+	var start = time.substr(0, 5);
+    var end = time.substr(6, 11);
+	//alert(start);
+	var start1 = time1.substr(0, 5);
+    var end1 = time1.substr(6, 11);
+	var start2 = time2.substr(0, 5);
+    var end2 = time2.substr(6, 11);
+	//console.log(start);
+	//alert(end);
+	//console.log(end);
+	if(t>start && t<end)
+		document.getElementById("demo").innerHTML= name + " " + "is available";
+	else if(t>start1 && t<end1)
+		document.getElementById("demo").innerHTML= name + " " + "is available";
+	else if(t>start2 && t<end2)
+		document.getElementById("demo").innerHTML= name + " " + "is available";
+	else
+		document.getElementById("demo").innerHTML= name + " " + "is not available";
+
+}	
+</script>
+</body>
+</html>
